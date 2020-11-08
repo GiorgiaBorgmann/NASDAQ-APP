@@ -2,18 +2,20 @@ let searchButton = document.getElementById('search-button');
 let listSearch = document.getElementById('search-input');
 let loading = document.getElementById('loading')
 
+
+
 async function doFetch(http) {
     listSearch.innerHTML = ""
     let response = await fetch(http)
     let data = await response.json()
-    console.table(data)
     for (let i = 0; i < data.length; i++) {
         let name = data[i].name;
         let symbol = data[i].symbol
-        listSearch.innerHTML += `<a href ="/company.html?symbol=${symbol}" class="list-group-item list-group-item-action"> ${name} ${symbol}</a>`
+        listSearch.innerHTML += `<a href="./company.html?symbol=${symbol}" class="list-group-item"> ${name} ${symbol}</a>`
         loading.classList.add('d-none')
     }
 }
+
 
 function searchFunc(event) {
     event.preventDefault()
@@ -23,4 +25,4 @@ function searchFunc(event) {
     loading.classList.remove('d-none')
     doFetch(http)
 }
-searchButton.addEventListener('click', searchFunc)
+searchButton && searchButton.addEventListener('click', searchFunc)
