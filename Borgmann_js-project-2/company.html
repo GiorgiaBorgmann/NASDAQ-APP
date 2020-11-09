@@ -5,19 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Company Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style-company.css">
 
 </head>
 
 <body>
-    <div class="container-fluid">
-        <span><img src="#" id="img-src"></img></span>
-        <span id="companyName"></span>
-
-        <div id="description"></div>
-        <a id="website"></a>
-
+    <div class="container">
+        <div class="col-12 d-flex ">
+            <span><img src="#" id="img-src" class="img-company ml-5 mt-4"></img></span>
+            <span id="companyName" class="display-4 mt-4"></span>
+        </div>
+        <div class="col-11 mt-5 ml-5 text-justfy ">
+            <div id="description" class="text-justify mb-3"></div>
+            <a id="website" class="font-weight-bold"></a>
+        </div>
+        <div class="col-6 ml-5 mt-3">
+            <span id="price" class="mr-4"></span>
+            <span>Change percentage:</span>
+            <span id="changes-percentage"></span>
+        </div>
+        <div class="col-10 mt-3 ml-5 mb-3">
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous"></script>
     <script src="./company.js"></script>
+
 </body>
 
 </html>
