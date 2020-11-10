@@ -12,28 +12,33 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="overlay">
-            <span class="fa-lg">
-                <i class="fas fa-spinner fa-pulse ml-2 d-none" id="loading"></i>
-            </span>
+    <div id="load">
+        <span class="fa-10x">
+            <i class="fas fa-spinner fa-pulse ml-2" id="loading"></i>
+        </span>
+    </div>
+    <div class="container-fluid" id="contents">
+        <div class="top-bar container-fluid"><i class="fas fa-search ml-5 search-icon"></i><a href="./index.html" class="ml-2">Search</a></div>
+        <div class="container">
+
+            <div class="col-12 d-flex ">
+                <span><img src="#" id="img-src" class="img-company ml-5 mt-4"></img></span>
+                <span id="companyName" class="display-4 mt-4"></span>
+            </div>
+            <div class="col-11 mt-5 ml-5 text-justfy ">
+                <div id="description" class="text-justify mb-3"></div>
+                <a id="website" class="font-weight-bold"></a>
+            </div>
+            <div class="col-6 ml-5 mt-3">
+                <span id="price" class="mr-4"></span>
+                <span>Change percentage:</span>
+                <span id="changes-percentage"></span>
+            </div>
+            <div class="col-10 mt-3 ml-5 mb-3">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
-        <div class="col-12 d-flex ">
-            <span><img src="#" id="img-src" class="img-company ml-5 mt-4"></img></span>
-            <span id="companyName" class="display-4 mt-4"></span>
-        </div>
-        <div class="col-11 mt-5 ml-5 text-justfy ">
-            <div id="description" class="text-justify mb-3"></div>
-            <a id="website" class="font-weight-bold"></a>
-        </div>
-        <div class="col-6 ml-5 mt-3">
-            <span id="price" class="mr-4"></span>
-            <span>Change percentage:</span>
-            <span id="changes-percentage"></span>
-        </div>
-        <div class="col-10 mt-3 ml-5 mb-3">
-            <canvas id="myChart"></canvas>
-        </div>
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous"></script>
