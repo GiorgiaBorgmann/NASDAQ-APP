@@ -10,6 +10,7 @@ const changesPercentage = document.getElementById('changes-percentage')
 let dateGraphic = [];
 let dataGraphic = [];
 
+
 function changeColor(value, obj) {
 
     if (value > 0) {
@@ -24,9 +25,19 @@ async function FetchHttp(http, symbol) {
     let newData = await response.json()
     return newData
 }
-async function FetchCompanyInformation() {
+
+function checkIfNotNull(element, data) {
+    if (data === null) {
+        element.classList.add('d-none')
+    }
+}
+async function fetchCompanyInformation() {
     let httpCompany = `http://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/`
     let newData = await FetchHttp(httpCompany, symbol)
+    checkIfNotNull(companyName, newData.profile.companyName)
+    checkIfNotNull(imgSrc, newData.profile.image)
+    checkIfNotNull(description, newData.profile.description)
+    checkIfNotNull(website, newData.profile.website)
     companyName.innerHTML = `${newData.profile.companyName}`
     imgSrc.src = `${newData.profile.image}`
     description.innerHTML = `${newData.profile.description}`
@@ -49,31 +60,35 @@ async function graphic() {
 
 
 }
-graphic()
-
-let ctx = document.getElementById('myChart').getContext('2d');
-
-let myChart = new Chart(ctx, {
-    type: 'bar',
-    responsive: true,
-    data: {
-        labels: dateGraphic,
-        datasets: [{
-            label: 'stock price',
-            data: dataGraphic,
-            borderColor: ['rgb(255, 14, 198)']
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
+window.onload = async() => {
+    await graphic()
+    let ctx = document.getElementById('myChart').getContext('2d');
+    let myChart = new Chart(ctx, {
+        type: 'bar',
+        responsive: true,
+        data: {
+            labels: dateGraphic,
+            datasets: [{
+                label: 'stock price',
+                data: dataGraphic,
+                fill: true,
+                backgroundColor: 'rgb(2, 117, 216)',
+                borderColor: 'rgb(2, 117, 216) ',
+                borderWidth: 1,
+                showLine: false
             }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
         }
-    }
-});
+    });
+}
 
 
-FetchCompanyInformation()
+fetchCompanyInformation()
