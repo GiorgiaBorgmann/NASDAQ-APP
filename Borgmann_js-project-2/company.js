@@ -9,7 +9,6 @@ const price = document.getElementById('price')
 const changesPercentage = document.getElementById('changes-percentage')
 let dateGraphic = [];
 let dataGraphic = [];
-
 document.onreadystatechange = function() {
     let state = document.readyState
     if (state == 'interactive') {
