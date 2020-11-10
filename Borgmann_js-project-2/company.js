@@ -10,6 +10,18 @@ const changesPercentage = document.getElementById('changes-percentage')
 let dateGraphic = [];
 let dataGraphic = [];
 
+document.onreadystatechange = function() {
+    var state = document.readyState
+    if (state == 'interactive') {
+        document.getElementById('contents').classList.add('d-none');
+    } else if (state == 'complete') {
+        setTimeout(function() {
+            document.getElementById('interactive');
+            document.getElementById('load').classList.add('d-none');
+            document.getElementById('contents').classList.remove('d-none');
+        }, 1000);
+    }
+}
 
 function changeColor(value, obj) {
 
@@ -38,10 +50,10 @@ async function fetchCompanyInformation() {
     checkIfNotNull(imgSrc, newData.profile.image)
     checkIfNotNull(description, newData.profile.description)
     checkIfNotNull(website, newData.profile.website)
-    companyName.innerHTML = `${newData.profile.companyName}`
+    companyName.innerHTML = `<b>${newData.profile.companyName}</b>`
     imgSrc.src = `${newData.profile.image}`
     description.innerHTML = `${newData.profile.description}`
-    website.innerHTML = `<a href="${newData.profile.website}"  target="_blank"> ${newData.profile.companyName}</a>`
+    website.innerHTML = `<a href="${newData.profile.website}"  target="_blank" class="website"> ${newData.profile.companyName}</a>`
     price.innerHTML = `Stock price: <b>$${newData.profile.price}</b>`
     changesPercentage.innerHTML = `<b>${parseFloat(newData.profile.changesPercentage.slice(1, -1))}</b>`
     changeColor(parseFloat(newData.profile.changesPercentage.slice(1, -1)), changesPercentage)
@@ -72,8 +84,8 @@ window.onload = async() => {
                 label: 'stock price',
                 data: dataGraphic,
                 fill: true,
-                backgroundColor: 'rgb(2, 117, 216)',
-                borderColor: 'rgb(2, 117, 216) ',
+                backgroundColor: 'rgba(79, 206, 217, 1)',
+                borderColor: 'rgba(79, 206, 217, 1) ',
                 borderWidth: 1,
                 showLine: false
             }]
