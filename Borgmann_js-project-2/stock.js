@@ -2,8 +2,6 @@ let searchButton = document.getElementById('search-button');
 let listSearch = document.getElementById('search-input');
 let loading = document.getElementById('loading')
 
-
-
 async function doFetch(http) {
     listSearch.innerHTML = ""
     let response = await fetch(http)
@@ -15,7 +13,6 @@ async function doFetch(http) {
         loading.classList.add('d-none')
     }
 }
-
 
 function searchFunc(event) {
     event.preventDefault()
