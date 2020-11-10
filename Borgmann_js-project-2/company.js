@@ -11,7 +11,7 @@ let dateGraphic = [];
 let dataGraphic = [];
 
 document.onreadystatechange = function() {
-    var state = document.readyState
+    let state = document.readyState
     if (state == 'interactive') {
         document.getElementById('contents').classList.add('d-none');
     } else if (state == 'complete') {
@@ -55,22 +55,17 @@ async function fetchCompanyInformation() {
     description.innerHTML = `${newData.profile.description}`
     website.innerHTML = `<a href="${newData.profile.website}"  target="_blank" class="website"> ${newData.profile.companyName}</a>`
     price.innerHTML = `Stock price: <b>$${newData.profile.price}</b>`
-    changesPercentage.innerHTML = `<b>${parseFloat(newData.profile.changesPercentage.slice(1, -1))}</b>`
+    changesPercentage.innerHTML = `<b>${parseFloat(newData.profile.changesPercentage.slice(1, -1))}%</b>`
     changeColor(parseFloat(newData.profile.changesPercentage.slice(1, -1)), changesPercentage)
 }
 async function graphic() {
     let httpGraphic = "http://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/"
     let newData = await FetchHttp(httpGraphic, symbol)
-
     let dataGraphicLoop = newData.historical;
     for (let i = 0; i < dataGraphicLoop.length; i++) {
         dateGraphic.push(newData.historical[i].date)
         dataGraphic.push(newData.historical[i].close)
     }
-    console.table(dateGraphic)
-    console.table(dataGraphic)
-
-
 }
 window.onload = async() => {
     await graphic()
@@ -101,6 +96,4 @@ window.onload = async() => {
         }
     });
 }
-
-
 fetchCompanyInformation()
