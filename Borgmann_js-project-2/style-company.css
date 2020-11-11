@@ -10,11 +10,7 @@
 #load {
     display: flex;
     background: rgb(9, 66, 156);
-<<<<<<< HEAD
     background: linear-gradient(90deg, #036079 0%, rgba(79, 206, 217, 1) 100%);
-=======
-    background: linear-gradient(90deg, rgba(9, 66, 156, 1) 0%, rgba(79, 206, 217, 1) 100%);
->>>>>>> main
     justify-content: center;
     height: 700px;
     align-items: center;
@@ -29,13 +25,8 @@
 }
 
 .top-bar {
-<<<<<<< HEAD
     background: #036079;
     background: linear-gradient(90deg, #036079 0%, rgba(79, 206, 217, 1) 100%);
-=======
-    background: rgb(9, 66, 156);
-    background: linear-gradient(90deg, rgba(9, 66, 156, 1) 0%, rgba(79, 206, 217, 1) 100%);
->>>>>>> main
     height: 50px;
     display: flex;
     align-items: center;
@@ -51,9 +42,5 @@
 }
 
 .website {
-<<<<<<< HEAD
     color: #036079;
-=======
-    color: rgba(9, 66, 156, 1);
->>>>>>> main
 }
