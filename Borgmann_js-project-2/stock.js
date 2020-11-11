@@ -40,7 +40,7 @@ async function liveData() {
         let symbol = data[i].symbol[0] == "^" ? data[i].symbol.slice(1) : data[i].symbol
         let changePer = data[i].changesPercentage
         let color = ""
-        printResult.innerHTML += `<li> ${symbol} <span class="text-white p-1 border rounded ${changePer >=0 ? color = 'bg-success border-success': color = 'bg-danger border-danger'}">${changePer}%</span></li>`
+        printResult.innerHTML += `<li class="text-white"> ${symbol} <span width = "28px" class="text-white p-1 border rounded ${changePer >=0 ? color = 'bg-success border-success': color = 'bg-danger border-danger'}">${changePer}%</span></li>`
     }
 }
 liveData()

@@ -2,6 +2,8 @@ body {
     background-image: url(./img/background_index.jpg);
     margin: 0;
     font-family: 'Roboto Condensed', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -32,6 +34,7 @@ h2 {
     align-items: center;
     justify-content: start;
     height: 100vh;
+    max-width: 100%;
     margin: 0;
 }
 
@@ -93,6 +96,8 @@ h2 {
 #result-prices-live {
     display: flex;
     list-style: none;
+    position: relative;
+    animation: example 20s linear 0s infinite running;
 }
 
 #result-prices-live li {
@@ -103,4 +108,18 @@ h2 {
 
 #result-prices-live span {
     margin-left: 5px;
+    min-width: 50px;
+    text-align: center;
+}
+
+@keyframes example {
+    0% {
+        right: 0;
+    }
+    50% {
+        right: 500px;
+    }
+    100% {
+        right: 1000px;
+    }
 }
