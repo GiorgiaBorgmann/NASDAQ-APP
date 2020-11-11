@@ -30,17 +30,11 @@ function displayResults(data, dataPrice) {
         loading.classList.add('d-none')
     }
 }
-async function liveData() {
-    httpData = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quotes/index"
-    let data = await fetchHttp(httpData)
-    console.log(data)
+window.onload = async() => {
     let printResult = document.getElementById('result-prices-live')
-    for (let i = 0; i < data.length; i++) {
-        let symbol = data[i].symbol[0] == "^" ? data[i].symbol.slice(1) : data[i].symbol
-        let changePer = data[i].changesPercentage
-        let color = ""
-        printResult.innerHTML += `<li class="text-white"> ${symbol} <span class=" text-white p-1 border rounded ${changePer >=0 ? color = 'bg-success border-success': color = 'bg-danger border-danger'}">${changePer}%</span></li>`
-    }
+    let marquee = new Marquee(printResult)
+    let data = await marquee.fetchUrl("https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quotes/index")
+    console.log(data)
+    marquee.injectData()
 }
-liveData()
 searchButton && searchButton.addEventListener('click', searchFunc)
