@@ -98,6 +98,8 @@ h2 {
     list-style: none;
     position: relative;
     animation: example 20s linear 0s infinite running;
+    /* background-color: #036079; */
+    /* background: linear-gradient(90deg, #036079 10%, rgba(79, 206, 217, 1) 100%); */
 }
 
 #result-prices-live li {
@@ -122,4 +124,15 @@ h2 {
     100% {
         right: 1000px;
     }
+}
+
+.data-box {
+    display: inline-block;
+    width: 80px !important;
+    text-align: center;
+}
+
+.container-flex-results {
+    display: flex;
+    justify-content: space-between;
 }

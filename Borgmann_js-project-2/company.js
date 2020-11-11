@@ -66,7 +66,6 @@ async function graphic() {
         dateGraphic.push(newData.historical[i].date)
         dataGraphic.push(newData.historical[i].close)
     }
-
     return {
         "data": dataGraphic,
         "date": dateGraphic
