@@ -9,6 +9,17 @@ h1 {
     color: aliceblue;
     border-top: 4px solid aliceblue;
     border-bottom: 4px solid aliceblue;
+    margin: 50px 0 15px 0;
+    padding: 15px 0;
+    font-weight: 300;
+}
+
+h2 {
+    color: aliceblue;
+    margin: 0 0 3rem 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
 }
 
 #loading {
@@ -24,18 +35,14 @@ h1 {
     margin: 0;
 }
 
-.d-none {
-    display: none;
-}
-
-.form-inline input {
+.form-inline-stock input {
     width: 500px;
     border: none;
     height: 40px;
     border-radius: 5px;
 }
 
-.form-inline button {
+.form-inline-stock button {
     background-color: #036079;
     color: aliceblue;
     border: none;
@@ -44,19 +51,19 @@ h1 {
     font-size: 1.1rem;
 }
 
-.form-inline button:hover {
+.form-inline-stock button:hover {
     background-color: rgba(79, 206, 217, 1);
     color: aliceblue;
 }
 
-.list-group {
+.list-group-result {
     display: flex;
     align-items: center;
     flex-flow: column;
     justify-content: center;
 }
 
-.list-group li {
+.list-group-result li {
     display: flex;
     align-items: center;
     list-style: none;
@@ -66,19 +73,34 @@ h1 {
     border-bottom: 2px solid aliceblue;
 }
 
-.list-group li:hover {
+.list-group-result li:hover {
     background-color: #036079;
     opacity: 0.8;
 }
 
-.list-group li a {
+.list-group-result li a {
     color: aliceblue;
     text-decoration: none;
     font-size: 1.1rem;
     padding: 9px;
 }
 
-.list-group img {
+.list-group-result img {
     height: 40px;
     width: 40px;
+}
+
+#result-prices-live {
+    display: flex;
+    list-style: none;
+}
+
+#result-prices-live li {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+}
+
+#result-prices-live span {
+    margin-left: 5px;
 }

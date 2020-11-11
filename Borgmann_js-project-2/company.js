@@ -7,8 +7,7 @@ const description = document.getElementById('description')
 const website = document.getElementById('website')
 const price = document.getElementById('price')
 const changesPercentage = document.getElementById('changes-percentage')
-let dateGraphic = [];
-let dataGraphic = [];
+
 document.onreadystatechange = function() {
     let state = document.readyState
     if (state == 'interactive') {
@@ -61,22 +60,29 @@ async function graphic() {
     let httpGraphic = "http://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/"
     let newData = await FetchHttp(httpGraphic, symbol)
     let dataGraphicLoop = newData.historical;
+    let dateGraphic = [];
+    let dataGraphic = [];
     for (let i = 0; i < dataGraphicLoop.length; i++) {
         dateGraphic.push(newData.historical[i].date)
         dataGraphic.push(newData.historical[i].close)
     }
+
+    return {
+        "data": dataGraphic,
+        "date": dateGraphic
+    }
 }
 window.onload = async() => {
-    await graphic()
+    const dataGraphic = await graphic()
     let ctx = document.getElementById('myChart').getContext('2d');
     let myChart = new Chart(ctx, {
         type: 'bar',
         responsive: true,
         data: {
-            labels: dateGraphic,
+            labels: dataGraphic.date,
             datasets: [{
                 label: 'stock price',
-                data: dataGraphic,
+                data: dataGraphic.data,
                 fill: true,
                 backgroundColor: 'rgba(79, 206, 217, 1)',
                 borderColor: 'rgba(79, 206, 217, 1) ',

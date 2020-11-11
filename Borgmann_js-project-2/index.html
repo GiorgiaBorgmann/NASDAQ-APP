@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Exchange</title>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/index_style.css">
@@ -13,26 +13,23 @@
 
 <body>
     <div class="container-flex1">
-        <div class="col-10">
-            <h1>Stock Exchange</h1>
-            <h2>NASDAQ search</h2>
+        <div id="result-prices-live">
+            <ul>
+
+            </ul>
+
         </div>
-        <div class="col-10">
-            <form class="form-inline">
-
-                <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search" id="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">Search</button>
-
-                <span class="fa-lg">
-                <i class="fas fa-spinner fa-pulse ml-2 d-none" id="loading"></i>
+        <h1>Stock Exchange</h1>
+        <h2>NASDAQ Stock Search</h2>
+        <form class="form-inline-stock">
+            <input type="search" placeholder="" id="search">
+            <button type="submit" id="search-button">Search</button>
+            <span class="fa-lg">
+                <i class="fas fa-spinner fa-pulse d-none" id="loading"></i>
             </span>
-            </form>
-        </div>
-        <div>
-            <div class="list-group" id="search-input"></div>
-        </div>
+        </form>
+        <div class="list-group-result" id="search-input"></div>
     </div>
-
     <script src="./stock.js "></script>
 </body>
 
