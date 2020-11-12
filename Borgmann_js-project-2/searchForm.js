@@ -1,10 +1,10 @@
-class SearchForm {
+class SearchForm extends SearchResults {
     constructor(element) {
         this.element = element;
         this.inputElement = ""
     }
     searchInputs() {
-        let inputElement = document.getElementById('search');
-        searchButton && searchButton.addEventListener('click', searchFunc)
+        let executeFunction = displayResultsSearch()
+        this.element.addEventListener('click', executeFunction)
     }
 }

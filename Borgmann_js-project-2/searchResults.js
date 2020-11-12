@@ -1,20 +1,24 @@
-class SearchResults extends SearchForm {
+class SearchResults {
     constructor(element) {
         this.element = element;
         this.data = []
         this.dataPrice = []
     }
     async fetchUrl() {
-        let response = await fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${this.searchInput.value}&limit=10&exchange=NASDAQ`)
+        loading.classList.remove('d-none')
+        let inputElement = document.getElementById('search');
+        let response = await fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${inputElement.value}&limit=10&exchange=NASDAQ`)
         let data = await response.json()
         this.data = data
     }
     async fetchUrlPrices() {
-        let response = await fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/${this.symbol}`)
+        let symbols = this.data.map((function(element) { element = this.symbol }).join(','))
+        let response = await fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/${symbols}`)
         let dataPrice = await response.json()
         this.dataPrice = dataPrice
     }
-    displayResultsSearch() {
+    displayResultsSearch(event) {
+        event.preventDefault();
         for (let i = 0; i < this.data.length; i++) {
             let loading = document.getElementById('loading');
             let name = this.data[i].name;

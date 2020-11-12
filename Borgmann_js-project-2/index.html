@@ -29,14 +29,20 @@
     <script src="./marquee.js "></script>
     <script src="./searchForm.js"></script>
     <script src="./searchResults.js"></script>
-    <script src="./stock.js "></script>
+    <!-- <script src="./stock.js "></script> -->
     <script>
         window.onload = async() => {
+
             let printResult = document.getElementById('result-prices-live')
             let marquee = new Marquee(printResult)
             let data = await marquee.fetchUrl("https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quotes/index")
-            console.log(data)
             marquee.injectData()
+            let searchResults = new searchResults(document.getElementById('search-input'))
+            let fetchResults = await searchResults.fetchUrl()
+            let searchFetch = await searchResults.fetchUrlPrices()
+            searchResults.displayResultsSearch()
+            let searchForm = new searchForm(document.getElementById('search-button'))
+            searchForm.searchInputs(Event)
         }
     </script>
 </body>
