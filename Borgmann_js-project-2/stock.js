@@ -30,11 +30,5 @@ function displayResults(data, dataPrice) {
         loading.classList.add('d-none')
     }
 }
-window.onload = async() => {
-    let printResult = document.getElementById('result-prices-live')
-    let marquee = new Marquee(printResult)
-    let data = await marquee.fetchUrl("https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quotes/index")
-    console.log(data)
-    marquee.injectData()
-}
+
 searchButton && searchButton.addEventListener('click', searchFunc)

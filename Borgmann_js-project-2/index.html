@@ -14,9 +14,7 @@
 
 <body>
     <div class="container-flex1">
-        <div id="result-prices-live" class="d-none">
-            <ul></ul>
-        </div>
+        <div id="result-prices-live" class="d-none"></div>
         <h1>Stock Exchange</h1>
         <h2>NASDAQ Stock Search</h2>
         <form class="form-inline-stock">
@@ -29,7 +27,18 @@
         <div class="list-group-result" id="search-input"></div>
     </div>
     <script src="./marquee.js "></script>
+    <script src="./searchForm.js"></script>
+    <script src="./searchResults.js"></script>
     <script src="./stock.js "></script>
+    <script>
+        window.onload = async() => {
+            let printResult = document.getElementById('result-prices-live')
+            let marquee = new Marquee(printResult)
+            let data = await marquee.fetchUrl("https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quotes/index")
+            console.log(data)
+            marquee.injectData()
+        }
+    </script>
 </body>
 
 </html>
