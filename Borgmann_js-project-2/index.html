@@ -17,18 +17,12 @@
         <div id="result-prices-live" class="d-none"></div>
         <h1>Stock Exchange</h1>
         <h2>NASDAQ Stock Search</h2>
-        <form class="form-inline-stock">
-            <input type="search" placeholder="" id="search">
-            <button type="submit" id="search-button">Search</button>
-            <span class="fa-lg">
-                <i class="fas fa-spinner fa-pulse d-none" id="loading"></i>
-            </span>
-        </form>
+        <form class="form-inline-stock" id='form-inline-stock'></form>
         <div class="list-group-result" id="search-input"></div>
     </div>
+    <script src="./searchResults.js"></script>
     <script src="./marquee.js "></script>
     <script src="./searchForm.js"></script>
-    <script src="./searchResults.js"></script>
     <!-- <script src="./stock.js "></script> -->
     <script>
         window.onload = async() => {
@@ -37,12 +31,10 @@
             let marquee = new Marquee(printResult)
             let data = await marquee.fetchUrl("https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quotes/index")
             marquee.injectData()
-            let searchResults = new searchResults(document.getElementById('search-input'))
-            let fetchResults = await searchResults.fetchUrl()
-            let searchFetch = await searchResults.fetchUrlPrices()
-            searchResults.displayResultsSearch()
-            let searchForm = new searchForm(document.getElementById('search-button'))
-            searchForm.searchInputs(Event)
+            let searchResults = new SearchResults(document.getElementById('form-inline-stock'))
+            searchResults.creatHTML()
+            let searchForm = new SearchForm(document.getElementById('search-button'))
+
         }
     </script>
 </body>
