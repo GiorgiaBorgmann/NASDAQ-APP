@@ -26,8 +26,8 @@ class SearchResults {
             let loading = document.getElementById('loading');
             let results = document.getElementById('search-input')
             let name = this.data[i].name;
-            let symbol = this.data[i].symbol
-            let price = this.dataPrice[i].change
+            let symbol = this.data[i].symbol;
+            let price = this.dataPrice[i].change;
             let color = ""
             results.innerHTML += `<li class="container-flex-results"><div><img src="https://financialmodelingprep.com/images-New-jpg/${symbol}.jpg"><a href="./company.html?symbol=${symbol}"> ${name} &nbsp (${symbol}) &nbsp </div><span class="data-box text-white p-1 border rounded ${price >=0 ? color = 'bg-success border-success': color = 'bg-danger border-danger'}">${price}%<span></a></li>`
             loading.classList.add('d-none')
