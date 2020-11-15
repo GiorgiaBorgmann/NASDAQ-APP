@@ -136,3 +136,7 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
+
+.highlight {
+    background-color: #fff000;
+}

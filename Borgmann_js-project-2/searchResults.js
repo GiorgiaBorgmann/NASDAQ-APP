@@ -3,6 +3,7 @@ class SearchResults {
         this.element = element;
         this.data = []
         this.dataPrice = []
+        this.highlightText
     }
     async fetchUrl() {
         loading.classList.remove('d-none')
@@ -21,7 +22,26 @@ class SearchResults {
     creatHTML() {
         this.element.innerHTML = `<input type="search" placeholder="" id="search"><button id="search-button">Search</button>  <span class="fa-lg"><i class="fas fa-spinner fa-pulse d-none" id="loading"></i></span>`
     }
+
+    hightlight(text) {
+        var inputText = document.getElementsByClassName('linkText')
+        let innerHTML1 = inputText.innerHTML;
+        console.log(innerHTML1)
+        let lowerInnerHTML = innerHTML1.toLowerCase();
+        let index = lowerInnerHTML.indexOf(text.toLowerCase())
+        if (index >= 0) {
+            innerHTML1.substring(0, index) +
+                '<span class="highlight">' +
+                innerHTML1.substring(index, index + text.length) +
+                '</span>' +
+                innerHTML1.substring(index + text.length);
+            document.getElementsByClassName('linkText').innerHTML = innerHTML1
+        }
+    }
+
+
     async displayResultsSearch() {
+
         for (let i = 0; i < this.data.length; i++) {
             let loading = document.getElementById('loading');
             let results = document.getElementById('search-input')
@@ -29,8 +49,12 @@ class SearchResults {
             let symbol = this.data[i].symbol;
             let price = this.dataPrice[i].change;
             let color = ""
-            results.innerHTML += `<li class="container-flex-results"><div><img src="https://financialmodelingprep.com/images-New-jpg/${symbol}.jpg"><a href="./company.html?symbol=${symbol}"> ${name} &nbsp (${symbol}) &nbsp </div><span class="data-box text-white p-1 border rounded ${price >=0 ? color = 'bg-success border-success': color = 'bg-danger border-danger'}">${price}%<span></a></li>`
+            let searchInput = document.getElementById('search')
+            results.innerHTML += `<li class="container-flex-results"><div><img src="https://financialmodelingprep.com/images-New-jpg/${symbol}.jpg"><a href="./company.html?symbol=${symbol}" class="linkText">
+             ${name} &nbsp (${symbol}) &nbsp </div><span class="data-box text-white p-1 border rounded ${price >=0 ? color = 'bg-success border-success': color = 'bg-danger border-danger'}">${price}%<span></a></li>`
             loading.classList.add('d-none')
+            this.hightlight(searchInput.value)
         }
+
     }
 }
