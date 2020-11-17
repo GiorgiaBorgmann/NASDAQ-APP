@@ -5,7 +5,7 @@ class SearchForm extends SearchResults {
     }
     searchInputs() {
         this.element.addEventListener('click', async(event) => {
-            let results = document.getElementById('search-input')
+            let results = document.getElementById('searchInput')
             results.innerHTML = ""
             event.preventDefault();
             await super.fetchUrl()

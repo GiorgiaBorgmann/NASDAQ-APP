@@ -7,16 +7,17 @@ const description = document.getElementById('description')
 const website = document.getElementById('website')
 const price = document.getElementById('price')
 const changesPercentage = document.getElementById('changes-percentage')
+const contents = document.getElementById('contents')
 
 document.onreadystatechange = function() {
     let state = document.readyState
     if (state == 'interactive') {
-        document.getElementById('contents').classList.add('d-none');
+        contents.classList.add('d-none');
     } else if (state == 'complete') {
-        setTimeout(function() {
+        setTimeout(() => {
             document.getElementById('interactive');
             document.getElementById('load').classList.add('d-none');
-            document.getElementById('contents').classList.remove('d-none');
+            contents.classList.remove('d-none');
         }, 1000);
     }
 }
@@ -29,7 +30,7 @@ function changeColor(value, obj) {
         obj.classList.add('text-danger')
     }
 }
-async function FetchHttp(http, symbol) {
+async function fetchHttp(http, symbol) {
     let httpCompany = `${http}${symbol}`
     let response = await fetch(httpCompany)
     let newData = await response.json()
@@ -43,7 +44,7 @@ function checkIfNotNull(element, data) {
 }
 async function fetchCompanyInformation() {
     let httpCompany = `http://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/`
-    let newData = await FetchHttp(httpCompany, symbol)
+    let newData = await fetchHttp(httpCompany, symbol)
     checkIfNotNull(companyName, newData.profile.companyName)
     checkIfNotNull(imgSrc, newData.profile.image)
     checkIfNotNull(description, newData.profile.description)
@@ -58,7 +59,7 @@ async function fetchCompanyInformation() {
 }
 async function graphic() {
     let httpGraphic = "http://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/"
-    let newData = await FetchHttp(httpGraphic, symbol)
+    let newData = await fetchHttp(httpGraphic, symbol)
     let dataGraphicLoop = newData.historical;
     let dateGraphic = [];
     let dataGraphic = [];

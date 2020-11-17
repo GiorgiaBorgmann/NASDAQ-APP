@@ -93,7 +93,7 @@ h2 {
     width: 40px;
 }
 
-#result-prices-live {
+#resultPricesLive {
     display: flex;
     list-style: none;
     position: relative;
@@ -102,13 +102,13 @@ h2 {
     background: linear-gradient(90deg, #036079 10%, rgba(79, 206, 217, 1) 100%);
 }
 
-#result-prices-live li {
+#resultPricesLive li {
     display: flex;
     align-items: center;
     margin: 0 15px;
 }
 
-#result-prices-live span {
+#resultPricesLive span {
     margin-left: 5px;
     min-width: 50px;
     text-align: center;
