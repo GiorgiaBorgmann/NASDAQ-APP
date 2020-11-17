@@ -4,8 +4,6 @@ class SearchForm extends SearchResults {
         this.searchInputs()
     }
     searchInputs() {
-        // let executeFunction = displayResultsSearch()
-        console.log("Search nputsssS")
         this.element.addEventListener('click', async(event) => {
             let results = document.getElementById('search-input')
             results.innerHTML = ""
